@@ -13,6 +13,7 @@ import java.util.Optional;
 
 public interface CursoRepository extends MongoRepository<Curso, String> {
 
+    @Query(fields = "{ usuario: { senha:  0, dataCriacao: 0}, secaoList: {curso:  0 }}")
     public List<Curso> findAllByUsuario(Usuario usuario);
 
     @Query(fields = "{ usuario: { senha:  0, dataCriacao: 0}, secaoList: {curso:  0 }}")
@@ -24,6 +25,8 @@ public interface CursoRepository extends MongoRepository<Curso, String> {
     @Query("{id: ?0}")
     @Update("{ '$set' : { 'secaoList' : ?1 } }")
     public void updateSecaoList(String id,List<Secao> secaoList);
+
+
 
 }
 

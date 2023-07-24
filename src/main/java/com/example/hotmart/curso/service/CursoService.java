@@ -22,8 +22,12 @@ public class CursoService {
     @Autowired
     private UsuarioService usuarioService;
 
-    public List<Curso> listAllCursos(String email) {
-        var usuario =usuarioService.findUsuarioByEmail(email);
+    public List<Curso> listAllCursos() {
+        return cursoRepository.findAll();
+    }
+
+    public List<Curso> listAllCursosByUsuario(String usuarioId){
+        var usuario = usuarioService.findUsuarioById(usuarioId);
         return cursoRepository.findAllByUsuario(usuario);
     }
 

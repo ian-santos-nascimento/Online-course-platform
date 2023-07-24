@@ -3,6 +3,7 @@ package com.example.hotmart.usuario.controller;
 import com.example.hotmart.curso.model.Curso;
 import com.example.hotmart.usuario.model.Usuario;
 import com.example.hotmart.usuario.service.UsuarioService;
+import com.fasterxml.jackson.databind.node.TextNode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -28,8 +29,8 @@ public class UsuarioController {
             @ApiResponse(description = "Not Found", responseCode = "404", content = {@Content}),
             @ApiResponse(description = "Internal Server Error", responseCode = "500", content = {@Content}),
     })
-    public @ResponseBody ResponseEntity<Usuario> findUsuarioById(@RequestBody String email ){
-        var usuario =  usuarioService.findUsuarioByEmail(email);
+    public @ResponseBody ResponseEntity<Usuario> findUsuarioBy(@RequestBody Usuario user ){
+        var usuario =  usuarioService.findUsuarioByEmail(user);
         return ResponseEntity.ok().body(usuario);
     }
 

@@ -1,5 +1,6 @@
 package com.example.hotmart.usuario.service;
 
+import com.example.hotmart.exceptionHandler.BadRequestException;
 import com.example.hotmart.exceptionHandler.ResourceNotFoundException;
 import com.example.hotmart.usuario.repository.UsuarioRepository;
 import com.example.hotmart.usuario.model.Usuario;
@@ -13,11 +14,15 @@ public class UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-    //@Autowired
-    //private GridFsOperations gridFsOperations;
+    public Usuario findUsuarioByEmail(Usuario usuario) {
+        if(usuario.getEmail()!=null)
+            return usuarioRepository.findByEmail(usuario.getEmail()).orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
+        else
+            throw new BadRequestException("Bad request");
+    }
 
-    public Usuario findUsuarioByEmail(String email) {
-        return usuarioRepository.findByEmail(email).orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
+    public Usuario findUsuarioById(String usuarioId) {
+        return usuarioRepository.findById(usuarioId).orElseThrow(() -> new ResourceNotFoundException("Usuario não encontrado"));
     }
 
     public Usuario saveUsuario(Usuario usuario){

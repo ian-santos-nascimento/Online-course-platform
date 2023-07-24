@@ -35,15 +35,15 @@ public class SecaoController {
         return secaoService.findSecaoListByCurso(cursoId);
     }
 
-    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "Save a section",description = "Save a section ",tags = {"Secao"}, responses = {
+    @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE,  path = "{cursoId}")
+    @Operation(summary = "Save a section",description = "Save a section  passing the course Id in path",tags = {"Secao"}, responses = {
             @ApiResponse(description = "success", responseCode = "200", content = {
                     @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Secao.class))}),
             @ApiResponse(description = "Not Found", responseCode = "404", content = {@Content}),
             @ApiResponse(description = "Internal Server Error", responseCode = "500", content = {@Content}),
     })
-    public ResponseEntity<Secao> saveSecao(@RequestBody Secao secao){
-        var secaoDB = secaoService.saveSecao(secao);
+    public ResponseEntity<Secao> saveSecao(@RequestBody Secao secao, @PathVariable(value = "cursoId") String cursoId){
+        var secaoDB = secaoService.saveSecao(secao, cursoId);
         return ResponseEntity.ok().body(secaoDB);
     }
 

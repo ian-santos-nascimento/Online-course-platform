@@ -25,8 +25,8 @@ public class SecaoService {
     public Secao findSecaoById(String secaoId){
         return secaoRepository.findById(secaoId).orElse(null);
     }
-    public Secao saveSecao(Secao secao) {
-        var cursoDB = cursoRepository.findCursoById(secao.getCurso().getId());
+    public Secao saveSecao(Secao secao, String cursoId) {
+        var cursoDB = cursoRepository.findCursoById(cursoId);
         var secaoDB = secaoRepository.save(secao);
         cursoDB.get().addSecao(secaoDB);
         cursoRepository.updateSecaoList(cursoDB.get().getId(),cursoDB.get().getSecaoList());

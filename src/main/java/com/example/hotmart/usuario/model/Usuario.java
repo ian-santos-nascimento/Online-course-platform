@@ -1,6 +1,7 @@
 package com.example.hotmart.usuario.model;
 
 import com.example.hotmart.curso.model.Curso;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,13 +19,12 @@ public class Usuario {
     private String nome;
     @Indexed(unique = true)
     private String email;
-
+    @JsonIgnore
     private String senha;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     private Date dataCriacao;
 
-    private Curso curso;
 
 
     public String getId() {
@@ -67,11 +67,4 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
-    public Curso getCurso() {
-        return curso;
-    }
-
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
 }

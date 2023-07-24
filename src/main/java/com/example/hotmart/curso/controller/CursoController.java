@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -22,15 +23,19 @@ public class CursoController {
     private CursoService cursoService;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    @Operation(summary = "List all Courses passing the creator email on body",
-            description = "List all Courses passing the creator email on body",tags = {"Curso"}, responses = {
+    @Operation(summary = "List all Courses passing the creator id on path",
+            description = "List all Courses passing the creator id on path",tags = {"Curso"}, responses = {
             @ApiResponse(description = "success", responseCode = "200", content = {
                     @Content(mediaType = MediaType.APPLICATION_JSON_VALUE, schema = @Schema(implementation = Curso.class))}),
             @ApiResponse(description = "Not Found", responseCode = "404", content = {@Content}),
             @ApiResponse(description = "Internal Server Error", responseCode = "500", content = {@Content}),
     })
-    public ResponseEntity<List<Curso>> listAllCursos(@RequestBody String email){
-        var cursoList = cursoService.listAllCursos(email);
+    public ResponseEntity<List<Curso>> listAllCursos(@RequestParam(required = false)String userId){
+        List<Curso> cursoList;
+        if(userId != null)
+            cursoList = cursoService.listAllCursosByUsuario(userId);
+        else
+            cursoList = cursoService.listAllCursos();
         return ResponseEntity.ok().body(cursoList);
     }
 

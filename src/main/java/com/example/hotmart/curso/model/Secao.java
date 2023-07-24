@@ -1,5 +1,6 @@
 package com.example.hotmart.curso.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,6 +18,7 @@ public class Secao implements Serializable {
     private Long duracaoTotal; //Em segundos
 
     @DBRef
+    @JsonIgnore
     private Curso curso;
 
     public String getId() {

@@ -1,7 +1,7 @@
 package com.example.hotmart.usuario.service;
 
-import com.example.hotmart.exceptionHandler.BadRequestException;
-import com.example.hotmart.exceptionHandler.ResourceNotFoundException;
+import com.example.hotmart.util.exceptionHandler.BadRequestException;
+import com.example.hotmart.util.exceptionHandler.ResourceNotFoundException;
 import com.example.hotmart.usuario.repository.UsuarioRepository;
 import com.example.hotmart.usuario.model.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;

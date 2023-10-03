@@ -3,16 +3,17 @@ package com.example.hotmart.curso.model;
 import com.example.hotmart.usuario.model.Usuario;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Id;
+import lombok.Builder;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Document(collection = "curso")
+@Builder
 public class Curso implements Serializable {
 
     @Id

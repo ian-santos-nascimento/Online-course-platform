@@ -1,21 +1,18 @@
 package com.example.hotmart.usuario.controller;
 
-import com.example.hotmart.curso.model.Curso;
 import com.example.hotmart.usuario.model.Usuario;
 import com.example.hotmart.usuario.service.UsuarioService;
-import com.fasterxml.jackson.databind.node.TextNode;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/usuarios")
+@RequestMapping(value = "/usuario")
 public class UsuarioController {
 
     @Autowired

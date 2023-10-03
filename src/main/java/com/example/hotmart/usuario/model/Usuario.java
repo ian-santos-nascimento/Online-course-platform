@@ -1,22 +1,23 @@
 package com.example.hotmart.usuario.model;
 
-import com.example.hotmart.curso.model.Curso;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import jakarta.persistence.Id;
+import lombok.Builder;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
-import java.util.List;
 
 @Document(collection = "Usuario")
+@Builder
 public class Usuario {
 
     @Id
     private String id;
 
     private String nome;
+
     @Indexed(unique = true)
     private String email;
     @JsonIgnore
@@ -67,4 +68,15 @@ public class Usuario {
         this.dataCriacao = dataCriacao;
     }
 
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id='" + id + '\'' +
+                ", nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                ", dataCriacao=" + dataCriacao +
+                '}';
+    }
 }

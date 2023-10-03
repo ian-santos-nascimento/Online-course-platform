@@ -1,23 +1,21 @@
 package com.example.hotmart.util;
 
 import com.example.hotmart.curso.model.Video;
-import com.example.hotmart.exceptionHandler.VideoConverterException;
 import com.mongodb.client.gridfs.GridFSFindIterable;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.gridfs.GridFsOperations;
-import org.springframework.stereotype.Service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.zip.*;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
 @Slf4j
 public class VideoUtil {
@@ -41,7 +39,6 @@ public class VideoUtil {
         try {
 
             ZipInputStream zipIn = new ZipInputStream(bais);
-            ZipEntry entry = zipIn.getNextEntry();
 
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             byte[] buffer = new byte[1024];

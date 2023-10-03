@@ -2,7 +2,7 @@ package com.example.hotmart.curso.service;
 
 import com.example.hotmart.curso.model.Curso;
 import com.example.hotmart.curso.repository.CursoRepository;
-import com.example.hotmart.exceptionHandler.ResourceNotFoundException;
+import com.example.hotmart.util.exceptionHandler.ResourceNotFoundException;
 import com.example.hotmart.usuario.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

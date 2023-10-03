@@ -3,7 +3,7 @@ package com.example.hotmart.curso.service;
 import com.example.hotmart.curso.model.Secao;
 import com.example.hotmart.curso.repository.CursoRepository;
 import com.example.hotmart.curso.repository.SecaoRepository;
-import com.example.hotmart.exceptionHandler.ResourceNotFoundException;
+import com.example.hotmart.util.exceptionHandler.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

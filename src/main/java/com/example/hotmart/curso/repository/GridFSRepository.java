@@ -1,7 +1,7 @@
 package com.example.hotmart.curso.repository;
 
 import com.example.hotmart.curso.model.Video;
-import com.example.hotmart.exceptionHandler.ResourceNotFoundException;
+import com.example.hotmart.util.exceptionHandler.ResourceNotFoundException;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DBObject;
 import com.mongodb.client.gridfs.GridFSFindIterable;

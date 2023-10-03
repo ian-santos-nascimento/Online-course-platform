@@ -1,8 +1,6 @@
 package com.example.hotmart.curso.controller;
 
-import com.example.hotmart.converter.SecaoConverter;
 import com.example.hotmart.curso.model.Secao;
-import com.example.hotmart.curso.model.Video;
 import com.example.hotmart.curso.service.SecaoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -11,7 +9,6 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

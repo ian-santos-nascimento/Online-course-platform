@@ -1,4 +1,4 @@
-package com.example.hotmart.exceptionHandler;
+package com.example.hotmart.util.exceptionHandler;
 
 
 import org.springframework.http.HttpStatus;
